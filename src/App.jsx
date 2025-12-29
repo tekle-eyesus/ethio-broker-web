@@ -1,19 +1,10 @@
-import { useState } from "react";
-import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <div className='p-8 display-center flex flex-col items-center justify-center min-h-screen'>
-        <h1 className='text-3xl font-bold font-serif display-6 mb-4 centered'>
-          Ethio Broker Web Application
-        </h1>
-        <p className='font-serif text-lg'>
-          {" "}
-          Welcome to the Ethio Broker Web Application.{" "}
-        </p>
-      </div>
-    </>
+    <div className='min-h-screen bg-slate-50 font-sans text-slate-900'>
+      <Outlet />
+    </div>
   );
 }
 

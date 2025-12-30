@@ -18,7 +18,6 @@ const EditClientPage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  // We keep type separate because we usually don't allow changing Type on Edit (complex validation)
   const [type, setType] = useState("");
 
   const [formData, setFormData] = useState({
@@ -43,7 +42,6 @@ const EditClientPage = () => {
       try {
         const data = await getClientById(id);
         setType(data.type);
-        // Fill form data (handling nulls)
         setFormData({
           firstName: data.firstName || "",
           fatherName: data.fatherName || "",
@@ -62,12 +60,14 @@ const EditClientPage = () => {
         });
       } catch (error) {
         console.error("Error loading client", error);
+        alert("Could not load client details");
+        navigate("/clients");
       } finally {
         setLoading(false);
       }
     };
     loadData();
-  }, [id]);
+  }, [id, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -76,41 +76,55 @@ const EditClientPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
+
     try {
+      console.log("Submitting update for ID:", id, formData);
       await updateClient(id, formData);
-      navigate(`/clients/${id}`); // Go back to details page
+      console.log("Update successful, navigating back...");
+
+      // Force navigation back to details
+      navigate(`/clients/${id}`);
     } catch (error) {
-      alert("Error updating client");
+      console.error("Update error:", error);
+      alert(
+        "Error updating client: " +
+          (error.response?.data?.message || error.message)
+      );
     } finally {
       setSaving(false);
     }
   };
 
+  const handleCancel = () => {
+    navigate(`/clients/${id}`);
+  };
+
   if (loading)
     return (
-      <div className='p-10'>
-        <Loader2 className='animate-spin h-6 w-6' />
+      <div className='h-screen flex items-center justify-center'>
+        <Loader2 className='animate-spin h-8 w-8 text-blue-900' />
       </div>
     );
 
   return (
-    <div className='max-w-3xl mx-auto'>
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            Edit Client:{" "}
+    <div className='max-w-3xl mx-auto py-6'>
+      <Card className='shadow-md'>
+        <CardHeader className='bg-slate-50 border-b'>
+          <CardTitle className='text-xl text-slate-800'>
+            Edit:{" "}
             {type === "Individual" ? formData.firstName : formData.companyName}
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className='pt-6'>
           <form onSubmit={handleSubmit} className='space-y-6'>
-            {/* Conditional Fields */}
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            {/* Identity Fields */}
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
               {type === "Individual" ? (
                 <>
                   <div className='space-y-2'>
-                    <Label>First Name</Label>
+                    <Label htmlFor='firstName'>First Name</Label>
                     <Input
+                      id='firstName'
                       name='firstName'
                       value={formData.firstName}
                       required
@@ -118,8 +132,9 @@ const EditClientPage = () => {
                     />
                   </div>
                   <div className='space-y-2'>
-                    <Label>Father Name</Label>
+                    <Label htmlFor='fatherName'>Father Name</Label>
                     <Input
+                      id='fatherName'
                       name='fatherName'
                       value={formData.fatherName}
                       required
@@ -127,8 +142,9 @@ const EditClientPage = () => {
                     />
                   </div>
                   <div className='space-y-2'>
-                    <Label>Grandfather Name</Label>
+                    <Label htmlFor='grandfatherName'>Grandfather Name</Label>
                     <Input
+                      id='grandfatherName'
                       name='grandfatherName'
                       value={formData.grandfatherName}
                       onChange={handleChange}
@@ -138,8 +154,9 @@ const EditClientPage = () => {
               ) : (
                 <>
                   <div className='space-y-2 md:col-span-2'>
-                    <Label>Company Name</Label>
+                    <Label htmlFor='companyName'>Company Name</Label>
                     <Input
+                      id='companyName'
                       name='companyName'
                       value={formData.companyName}
                       required
@@ -147,8 +164,9 @@ const EditClientPage = () => {
                     />
                   </div>
                   <div className='space-y-2'>
-                    <Label>TIN Number</Label>
+                    <Label htmlFor='tinNumber'>TIN Number</Label>
                     <Input
+                      id='tinNumber'
                       name='tinNumber'
                       value={formData.tinNumber}
                       required
@@ -156,8 +174,9 @@ const EditClientPage = () => {
                     />
                   </div>
                   <div className='space-y-2'>
-                    <Label>Business Type</Label>
+                    <Label htmlFor='businessType'>Business Type</Label>
                     <Input
+                      id='businessType'
                       name='businessType'
                       value={formData.businessType}
                       onChange={handleChange}
@@ -167,12 +186,14 @@ const EditClientPage = () => {
               )}
             </div>
 
-            <div className='border-t border-slate-100 my-4'></div>
+            <div className='border-t border-slate-100 my-2'></div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            {/* Contact Fields */}
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
               <div className='space-y-2'>
-                <Label>Phone Number</Label>
+                <Label htmlFor='phone'>Phone Number</Label>
                 <Input
+                  id='phone'
                   name='phone'
                   value={formData.phone}
                   required
@@ -180,8 +201,9 @@ const EditClientPage = () => {
                 />
               </div>
               <div className='space-y-2'>
-                <Label>Email</Label>
+                <Label htmlFor='email'>Email</Label>
                 <Input
+                  id='email'
                   name='email'
                   type='email'
                   value={formData.email}
@@ -190,10 +212,11 @@ const EditClientPage = () => {
               </div>
             </div>
 
-            <div className='space-y-2 mt-4'>
-              <Label className='font-semibold text-slate-700'>
+            {/* Address Fields */}
+            <div className='space-y-3 p-4 bg-slate-50 rounded-md border'>
+              <h3 className='font-semibold text-slate-700 text-sm'>
                 Address Details
-              </Label>
+              </h3>
               <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
                 <div className='space-y-2'>
                   <Label>Region</Label>
@@ -238,17 +261,29 @@ const EditClientPage = () => {
               </div>
             </div>
 
-            <div className='flex justify-end gap-4 mt-6'>
+            <div className='flex justify-end gap-3 mt-6 pt-4 border-t'>
               <Button
                 type='button'
                 variant='outline'
-                onClick={() => navigate(`/clients/${id}`)}
+                onClick={handleCancel}
+                disabled={saving}
               >
                 Cancel
               </Button>
-              <Button type='submit' className='bg-blue-900' disabled={saving}>
-                {saving && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
-                Save Changes
+
+              <Button
+                type='submit'
+                className='bg-blue-900 hover:bg-blue-800 min-w-[140px]'
+                disabled={saving}
+              >
+                {saving ? (
+                  <>
+                    <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                    Saving...
+                  </>
+                ) : (
+                  "Save Changes"
+                )}
               </Button>
             </div>
           </form>

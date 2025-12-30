@@ -5,8 +5,8 @@ import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ClientsPage from "./pages/clients/ClientsPage";
 import CreateClientPage from "./pages/clients/createClientPage";
-import EditClientPage from "./pages/clients/ClientDetailsPage";
 import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
+import EditClientPage from "./pages/clients/EditClientPage";
 
 const router = createBrowserRouter([
   {

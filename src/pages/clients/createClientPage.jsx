@@ -69,7 +69,7 @@ const CreateClientPage = () => {
   };
 
   return (
-    <div className='max-w-3xl mx-auto'>
+    <div className='max-w-3xl mx-auto mt-6'>
       <Card>
         <CardHeader>
           <CardTitle>Add New Client</CardTitle>

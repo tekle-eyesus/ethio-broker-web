@@ -3,7 +3,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
-import ClientsPage from "./pages/ClientsPage";
+import ClientsPage from "./pages/clients/ClientsPage";
 
 const router = createBrowserRouter([
   {

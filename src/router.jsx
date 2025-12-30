@@ -5,6 +5,8 @@ import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ClientsPage from "./pages/clients/ClientsPage";
 import CreateClientPage from "./pages/clients/createClientPage";
+import EditClientPage from "./pages/clients/ClientDetailsPage";
+import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
           {
             path: "/clients/new",
             element: <CreateClientPage />,
+          },
+          {
+            path: "/clients/:id",
+            element: <ClientDetailsPage />,
+          },
+          {
+            path: "/clients/:id/edit",
+            element: <EditClientPage />,
           },
         ],
       },

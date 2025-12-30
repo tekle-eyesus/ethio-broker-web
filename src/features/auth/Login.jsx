@@ -15,11 +15,13 @@ import {
 import { Label } from "../../components/ui/label";
 import { Alert, AlertDescription } from "../../components/ui/alert";
 import { Loader2 } from "lucide-react";
+import { useAuth } from "../../store/auth-context";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   // Simple state for MVP (later use React Hook Form)
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -35,9 +37,8 @@ const Login = () => {
 
     try {
       const response = await api.post("/users/login", formData);
-      console.log("Login Success:", response.data);
-      // In real app, store user info in Context/Redux here
-      navigate("/"); // Go to Dashboard
+      login(response.data.data.user);
+      navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     } finally {

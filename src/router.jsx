@@ -4,6 +4,7 @@ import DashboardPage from "./pages/DashboardPage";
 import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ClientsPage from "./pages/clients/ClientsPage";
+import CreateClientPage from "./pages/clients/createClientPage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
           {
             path: "/clients",
             element: <ClientsPage />,
+          },
+          {
+            path: "/clients/new",
+            element: <CreateClientPage />,
           },
         ],
       },

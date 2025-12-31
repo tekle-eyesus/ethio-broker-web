@@ -9,6 +9,9 @@ import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
 import EditClientPage from "./pages/clients/EditClientPage";
 import CarriersPage from "./pages/carriers/CarriersPage";
 import CarrierFormPage from "./pages/carriers/CarrierFormPage";
+import PoliciesPage from "./pages/policies/PoliciesPage";
+import PolicyFormPage from "./pages/policies/PolicyFormPage";
+import PolicyDetailsPage from "./pages/policies/PolicyDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +56,10 @@ const router = createBrowserRouter([
             path: "/carriers/:id/edit",
             element: <CarrierFormPage />,
           },
+          { path: "/policies", element: <PoliciesPage /> },
+          { path: "/policies/new", element: <PolicyFormPage /> },
+          { path: "/policies/:id", element: <PolicyDetailsPage /> },
+          { path: "/policies/:id/edit", element: <PolicyFormPage /> },
         ],
       },
     ],

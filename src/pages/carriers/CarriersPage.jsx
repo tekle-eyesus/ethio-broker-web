@@ -65,7 +65,7 @@ const CarriersPage = () => {
           </p>
         </div>
         <Link to='/carriers/new'>
-          <Button className='bg-blue-900 hover:bg-blue-800'>
+          <Button className='bg-blue-900 hover:bg-blue-800 text-blue-100'>
             <Plus className='mr-2 h-4 w-4' /> Add Carrier
           </Button>
         </Link>

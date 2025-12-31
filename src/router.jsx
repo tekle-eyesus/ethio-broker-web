@@ -7,6 +7,8 @@ import ClientsPage from "./pages/clients/ClientsPage";
 import CreateClientPage from "./pages/clients/createClientPage";
 import ClientDetailsPage from "./pages/clients/ClientDetailsPage";
 import EditClientPage from "./pages/clients/EditClientPage";
+import CarriersPage from "./pages/carriers/CarriersPage";
+import CarrierFormPage from "./pages/carriers/CarrierFormPage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,18 @@ const router = createBrowserRouter([
           {
             path: "/clients/:id/edit",
             element: <EditClientPage />,
+          },
+          {
+            path: "/carriers",
+            element: <CarriersPage />,
+          },
+          {
+            path: "/carriers/new",
+            element: <CarrierFormPage />,
+          },
+          {
+            path: "/carriers/:id/edit",
+            element: <CarrierFormPage />,
           },
         ],
       },

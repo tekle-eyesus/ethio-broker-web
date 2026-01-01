@@ -110,7 +110,7 @@ const ClaimFormPage = () => {
     );
 
   return (
-    <div className='max-w-3xl mx-auto'>
+    <div className='max-w-3xl mx-auto mt-6'>
       <Card>
         <CardHeader>
           <CardTitle>
@@ -131,7 +131,7 @@ const ClaimFormPage = () => {
                   <SelectTrigger>
                     <SelectValue placeholder='Select relevant policy...' />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='bg-blue-50'>
                     {policies.map((p) => (
                       <SelectItem key={p._id} value={p._id}>
                         {p.policyNumber} -{" "}
@@ -253,7 +253,7 @@ const ClaimFormPage = () => {
               </Button>
               <Button
                 type='submit'
-                className='bg-blue-900'
+                className='bg-blue-900 text-blue-100'
                 disabled={submitting}
               >
                 {submitting && (

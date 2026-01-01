@@ -12,6 +12,9 @@ import CarrierFormPage from "./pages/carriers/CarrierFormPage";
 import PoliciesPage from "./pages/policies/PoliciesPage";
 import PolicyFormPage from "./pages/policies/PolicyFormPage";
 import PolicyDetailsPage from "./pages/policies/PolicyDetailsPage";
+import ClaimsPage from "./pages/claims/ClaimsPage";
+import ClaimFormPage from "./pages/claims/ClaimFormPage";
+import ClaimDetailsPage from "./pages/claims/ClaimDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +63,10 @@ const router = createBrowserRouter([
           { path: "/policies/new", element: <PolicyFormPage /> },
           { path: "/policies/:id", element: <PolicyDetailsPage /> },
           { path: "/policies/:id/edit", element: <PolicyFormPage /> },
+          { path: "/claims", element: <ClaimsPage /> },
+          { path: "/claims/new", element: <ClaimFormPage /> },
+          { path: "/claims/:id", element: <ClaimDetailsPage /> },
+          { path: "/claims/:id/edit", element: <ClaimFormPage /> },
         ],
       },
     ],

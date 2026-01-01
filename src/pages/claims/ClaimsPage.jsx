@@ -79,7 +79,7 @@ const ClaimsPage = () => {
           </p>
         </div>
         <Link to='/claims/new'>
-          <Button className='bg-blue-900 hover:bg-blue-800'>
+          <Button className='bg-blue-900 hover:bg-blue-800 text-blue-100'>
             <Plus className='mr-2 h-4 w-4' /> Register Claim
           </Button>
         </Link>
@@ -101,7 +101,7 @@ const ClaimsPage = () => {
               <Filter className='mr-2 h-4 w-4 text-slate-400' />
               <SelectValue placeholder='Status' />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className='bg-white border rounded-md'>
               <SelectItem value='all'>All Statuses</SelectItem>
               <SelectItem value='Reported'>Reported</SelectItem>
               <SelectItem value='In Review'>In Review</SelectItem>

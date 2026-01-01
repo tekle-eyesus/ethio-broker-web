@@ -66,6 +66,11 @@ const PolicyDetailsPage = () => {
           </div>
         </div>
         <div className='flex gap-2'>
+          <Link to={`/policies/${id}/finance`}>
+            <Button className='bg-emerald-600 hover:bg-emerald-700'>
+              <Wallet className='mr-2 h-4 w-4' /> Finance
+            </Button>
+          </Link>
           <Link to={`/policies/${id}/edit`}>
             <Button variant='outline'>
               <Edit className='mr-2 h-4 w-4' /> Edit

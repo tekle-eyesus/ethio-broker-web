@@ -104,7 +104,7 @@ const PolicyFinancePage = () => {
   const { policyTotals, summary, transactions } = data;
 
   return (
-    <div className='space-y-6 max-w-5xl mx-auto'>
+    <div className='space-y-6 max-w-5xl mx-auto mt-6'>
       {/* Header */}
       <div className='flex justify-between items-center'>
         <div className='flex items-center gap-2'>
@@ -119,7 +119,7 @@ const PolicyFinancePage = () => {
 
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button className='bg-blue-900 hover:bg-blue-800'>
+            <Button className='bg-blue-900 hover:bg-blue-800 text-blue-100'>
               <Wallet className='mr-2 h-4 w-4' /> Record Transaction
             </Button>
           </DialogTrigger>
@@ -139,7 +139,7 @@ const PolicyFinancePage = () => {
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='bg-blue-50'>
                     <SelectItem value='ClientPayment'>
                       Receive from Client
                     </SelectItem>
@@ -172,7 +172,7 @@ const PolicyFinancePage = () => {
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className='bg-blue-50'>
                       <SelectItem value='Cash'>Cash</SelectItem>
                       <SelectItem value='Bank Transfer'>
                         Bank Transfer

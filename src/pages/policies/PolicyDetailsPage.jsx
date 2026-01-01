@@ -9,7 +9,14 @@ import {
   CardContent,
 } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
-import { Loader2, ArrowLeft, Edit, Trash2, FileText } from "lucide-react";
+import {
+  Loader2,
+  ArrowLeft,
+  Edit,
+  Trash2,
+  FileText,
+  Wallet,
+} from "lucide-react";
 
 const PolicyDetailsPage = () => {
   const { id } = useParams();

@@ -92,7 +92,7 @@ const Login = () => {
             </div>
             <Button
               type='submit'
-              className='w-full bg-blue-900 hover:bg-blue-800'
+              className='w-full bg-blue-900 hover:bg-blue-800 text-blue-100'
               disabled={loading}
             >
               {loading ? (

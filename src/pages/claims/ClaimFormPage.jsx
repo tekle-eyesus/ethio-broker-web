@@ -211,7 +211,7 @@ const ClaimFormPage = () => {
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className='bg-blue-50'>
                         <SelectItem value='Reported'>Reported</SelectItem>
                         <SelectItem value='In Review'>In Review</SelectItem>
                         <SelectItem value='Approved'>Approved</SelectItem>

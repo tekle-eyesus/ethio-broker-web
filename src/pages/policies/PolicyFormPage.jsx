@@ -162,7 +162,7 @@ const PolicyFormPage = () => {
                   <SelectTrigger>
                     <SelectValue placeholder='Select Category' />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='bg-blue-50'>
                     <SelectItem value='Motor'>Motor</SelectItem>
                     <SelectItem value='Health'>Health / Medical</SelectItem>
                     <SelectItem value='Property'>Property / Fire</SelectItem>
@@ -205,7 +205,7 @@ const PolicyFormPage = () => {
                   <SelectTrigger>
                     <SelectValue placeholder='Select Carrier' />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='bg-blue-50'>
                     {carriers.map((c) => (
                       <SelectItem key={c._id} value={c._id}>
                         {c.name}
@@ -285,7 +285,7 @@ const PolicyFormPage = () => {
               </Button>
               <Button
                 type='submit'
-                className='bg-blue-900'
+                className='bg-blue-900 text-blue-100'
                 disabled={submitting}
               >
                 {submitting && (

@@ -273,7 +273,7 @@ const EditClientPage = () => {
 
               <Button
                 type='submit'
-                className='bg-blue-900 hover:bg-blue-800 min-w-[140px]'
+                className='bg-blue-900 hover:bg-blue-800 min-w-[140px] text-blue-100'
                 disabled={saving}
               >
                 {saving ? (

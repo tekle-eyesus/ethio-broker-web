@@ -50,7 +50,7 @@ const ClientsPage = () => {
           </p>
         </div>
         <Link to='/clients/new'>
-          <Button className='bg-blue-900 hover:bg-blue-800'>
+          <Button className='bg-blue-900 hover:bg-blue-800 text-blue-100'>
             <Plus className='mr-2 h-4 w-4' /> Add Client
           </Button>
         </Link>

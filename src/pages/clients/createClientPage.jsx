@@ -230,7 +230,11 @@ const CreateClientPage = () => {
               >
                 Cancel
               </Button>
-              <Button type='submit' className='bg-blue-900' disabled={loading}>
+              <Button
+                type='submit'
+                className='bg-blue-900 text-blue-100'
+                disabled={loading}
+              >
                 {loading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
                 Create Client
               </Button>

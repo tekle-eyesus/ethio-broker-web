@@ -17,6 +17,7 @@ import ClaimFormPage from "./pages/claims/ClaimFormPage";
 import ClaimDetailsPage from "./pages/claims/ClaimDetailsPage";
 import FinancePage from "./pages/finance/FinancePage";
 import PolicyFinancePage from "./pages/finance/PolicyFinancePage";
+import SettingsPage from "./pages/settings/SettingsPage";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
           {
             path: "/policies/:policyId/finance",
             element: <PolicyFinancePage />,
+          },
+          {
+            path: "/settings",
+            element: <SettingsPage />,
           },
         ],
       },

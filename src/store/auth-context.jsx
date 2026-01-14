@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setUser(null);
       localStorage.removeItem("ethio_user");
-      window.location.href = "/login";
+      window.location.href = "/";
     }
   };
 

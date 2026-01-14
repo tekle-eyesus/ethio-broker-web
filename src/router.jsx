@@ -18,8 +18,13 @@ import ClaimDetailsPage from "./pages/claims/ClaimDetailsPage";
 import FinancePage from "./pages/finance/FinancePage";
 import PolicyFinancePage from "./pages/finance/PolicyFinancePage";
 import SettingsPage from "./pages/settings/SettingsPage";
+import LandingPage from "./pages/LandingPage";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+  },
   {
     path: "/login",
     element: <LoginPage />,
@@ -31,7 +36,7 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
           {
-            path: "/",
+            path: "/dashboard",
             element: <DashboardPage />,
           },
           {

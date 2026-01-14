@@ -38,7 +38,7 @@ const Login = () => {
     try {
       const response = await api.post("/users/login", formData);
       login(response.data.data.user);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     } finally {

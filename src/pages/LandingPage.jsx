@@ -99,12 +99,15 @@ const LandingPage = () => {
             </div>
 
             {/* Glass Card (Stats) */}
-            <div className='mt-8 p-6 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/70 shadow-lg max-w-lg'>
-              <h3 className='text-lg md:text-xl font-bold text-slate-800 mb-2'>
+            <div className='mt-8 p-6 rounded-3xl bg-white/50 backdrop-blur-2xl border border-white/50 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.35)] max-w-lg relative overflow-hidden'>
+              <div className='absolute inset-0 bg-gradient-to-br from-white/60 via-white/20 to-white/5 pointer-events-none' />
+              <div className='absolute -top-10 -right-10 w-36 h-36 bg-brand-100/70 blur-3xl opacity-70 pointer-events-none' />
+              <div className='absolute -bottom-12 -left-12 w-40 h-40 bg-slate-200/60 blur-3xl opacity-70 pointer-events-none' />
+              <h3 className='relative text-lg md:text-xl font-bold text-slate-800 mb-2'>
                 Elevate your brokerage with expert tools.
               </h3>
-              <div className='flex justify-between items-end mt-4 gap-6'>
-                <div>
+              <div className='relative flex justify-between items-end mt-4 gap-6'>
+                <div className='flex-1'>
                   <span className='text-3xl md:text-4xl font-bold text-slate-900 block'>
                     98.5%
                   </span>
@@ -112,7 +115,7 @@ const LandingPage = () => {
                     Claims Processed
                   </span>
                 </div>
-                <div>
+                <div className='flex-1 text-right'>
                   <span className='text-3xl md:text-4xl font-bold text-slate-900 block'>
                     100%
                   </span>
@@ -128,11 +131,6 @@ const LandingPage = () => {
           <div className='relative h-full flex justify-center lg:justify-end'>
             {/* Image Container with Glow */}
             <div className='relative w-full max-w-[420px] aspect-[3/4] rounded-[32px] overflow-hidden border-6 border-white/30 shadow-2xl'>
-              {/* 
-                   PLACEHOLDER IMAGE 
-                   Replace 'src' below with your actual image later.
-                   We use object-cover to ensure it fills the rounded box perfectly.
-                */}
               <img
                 src='/hero-broker.png'
                 alt='Professional Ethiopian Broker'

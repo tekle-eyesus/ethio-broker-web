@@ -10,6 +10,143 @@ import {
 } from "lucide-react";
 
 const LandingPage = () => {
+  const LOGOS = [
+    {
+      name: "EIC",
+      logo: (
+        <svg viewBox='0 0 100 30' fill='currentColor' className='h-8 w-auto'>
+          <path
+            d='M10,5 L20,25 L30,5 M40,5 L40,25 M55,5 L70,5 M62.5,5 L62.5,25 M80,5 L95,5 L80,25 L95,25'
+            stroke='currentColor'
+            strokeWidth='3'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </svg>
+      ), // Abstract Geometric representation
+    },
+    {
+      name: "Awash",
+      logo: (
+        <svg viewBox='0 0 100 30' fill='currentColor' className='h-9 w-auto'>
+          <circle
+            cx='15'
+            cy='15'
+            r='10'
+            stroke='currentColor'
+            strokeWidth='3'
+            fill='none'
+          />
+          <path
+            d='M35,15 h60'
+            stroke='currentColor'
+            strokeWidth='4'
+            strokeLinecap='round'
+          />
+          <text
+            x='35'
+            y='20'
+            fontSize='14'
+            fontWeight='bold'
+            fontFamily='sans-serif'
+          >
+            AWASH
+          </text>
+        </svg>
+      ),
+    },
+    {
+      name: "Nyala",
+      logo: (
+        <svg viewBox='0 0 100 30' fill='currentColor' className='h-10 w-auto'>
+          <path
+            d='M10,25 Q20,5 30,25'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='3'
+          />
+          <text
+            x='35'
+            y='22'
+            fontSize='16'
+            fontWeight='bold'
+            fontFamily='serif'
+            letterSpacing='1'
+          >
+            NYALA
+          </text>
+        </svg>
+      ),
+    },
+    {
+      name: "Nib",
+      logo: (
+        <svg viewBox='0 0 100 30' fill='currentColor' className='h-8 w-auto'>
+          <path
+            d='M10,15 L18,5 L26,15 L18,25 Z'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='2.5'
+          />
+          <path
+            d='M26,15 L34,5 L42,15 L34,25 Z'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='2.5'
+          />
+          <text
+            x='50'
+            y='20'
+            fontSize='15'
+            fontWeight='800'
+            fontFamily='sans-serif'
+          >
+            NIB
+          </text>
+        </svg>
+      ),
+    },
+    {
+      name: "United",
+      logo: (
+        <svg viewBox='0 0 120 30' fill='currentColor' className='h-8 w-auto'>
+          <path
+            d='M10,5 v12 a8,8 0 0,0 16,0 v-12'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='3'
+          />
+          <text
+            x='35'
+            y='20'
+            fontSize='14'
+            fontWeight='bold'
+            fontFamily='sans-serif'
+            letterSpacing='1'
+          >
+            UNITED
+          </text>
+        </svg>
+      ),
+    },
+    {
+      name: "Africa",
+      logo: (
+        <svg viewBox='0 0 120 30' fill='currentColor' className='h-8 w-auto'>
+          <circle cx='15' cy='15' r='8' fill='currentColor' />
+          <text
+            x='32'
+            y='20'
+            fontSize='14'
+            fontWeight='bold'
+            fontFamily='sans-serif'
+          >
+            AFRICA
+          </text>
+        </svg>
+      ),
+    },
+  ];
   return (
     <div className='min-h-screen bg-slate-50 relative overflow-hidden font-sans text-slate-900'>
       {/* --- Background Gradients (The "Glow" effect) --- */}
@@ -150,28 +287,48 @@ const LandingPage = () => {
       </section>
 
       {/* --- Logos Section (Trusted Partners) --- */}
-      <section className='py-8 px-5'>
-        <div className='max-w-6xl mx-auto bg-white/60 backdrop-blur-sm rounded-2xl p-6 md:p-10'>
-          <p className='text-center text-xs md:text-sm font-semibold text-slate-400 uppercase tracking-[0.25em] mb-6'>
-            Trusted by leading insurers
+      {/* --- Logos Section (Infinite Marquee) --- */}
+      <section className='py-12'>
+        <div className='max-w-7xl mx-auto px-6'>
+          <p className='text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8'>
+            Trusted by Ethiopia's Top Insurers
           </p>
-          <div className='flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500'>
-            {/* Text placeholders for Logos - Replace with SVGs later */}
-            <span className='text-xl md:text-2xl font-bold text-slate-800'>
-              EIC
-            </span>
-            <span className='text-xl md:text-2xl font-bold text-slate-800'>
-              AWASH
-            </span>
-            <span className='text-xl md:text-2xl font-bold text-slate-800'>
-              NYALA
-            </span>
-            <span className='text-xl md:text-2xl font-bold text-slate-800'>
-              NIB
-            </span>
-            <span className='text-xl md:text-2xl font-bold text-slate-800'>
-              UNITED
-            </span>
+
+          {/* Slider Container with Fade Masks */}
+          <div className='relative flex overflow-x-hidden group'>
+            {/* 
+                 Gradient Masks (Left and Right) 
+                 These create the 'fade in/out' effect at the edges 
+              */}
+            <div className='absolute top-0 bottom-0 left-0 w-16 md:w-32 z-10 bg-gradient-to-r from-slate-50 to-transparent'></div>
+            <div className='absolute top-0 bottom-0 right-0 w-16 md:w-32 z-10 bg-gradient-to-l from-slate-50 to-transparent'></div>
+
+            {/* The Moving Track */}
+            <div className='flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap'>
+              {/* 1. Original Set of Logos */}
+              <div className='flex gap-16 md:gap-24 mx-8 md:mx-12 items-center'>
+                {LOGOS.map((company, index) => (
+                  <div
+                    key={`logo-1-${index}`}
+                    className='opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer'
+                  >
+                    {company.logo}
+                  </div>
+                ))}
+              </div>
+
+              {/* 2. Duplicate Set (To create infinite illusion) */}
+              <div className='flex gap-16 md:gap-24 mx-8 md:mx-12 items-center'>
+                {LOGOS.map((company, index) => (
+                  <div
+                    key={`logo-2-${index}`}
+                    className='opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer'
+                  >
+                    {company.logo}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

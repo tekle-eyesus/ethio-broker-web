@@ -10,6 +10,7 @@ import {
   Building2,
   PieChart,
   Award,
+  ArrowUpRight,
 } from "lucide-react";
 
 import amharaBankLogo from "../assets/logos/amhara-bank.png";
@@ -259,6 +260,54 @@ const LandingPage = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* --- Services / Features Section --- */}
+      <section id='features' className='py-24 bg-white relative'>
+        {/* Decorator Background Blob */}
+        <div className='absolute top-1/2 left-0 w-full h-[500px] bg-slate-50 skew-y-3 -z-10'></div>
+
+        <div className='max-w-7xl mx-auto px-6 md:px-12'>
+          {/* Section Header */}
+          <div className='text-center max-w-3xl mx-auto mb-16 space-y-4'>
+            <h2 className='text-3xl md:text-5xl font-bold text-slate-900 tracking-tight'>
+              Complete Solutions for <br />
+              <span className='text-brand-600'>Modern Brokerage</span>
+            </h2>
+            <p className='text-lg text-slate-500'>
+              Replace fragmented spreadsheets with a unified system designed for
+              the Ethiopian insurance market.
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {SERVICES.map((service, index) => (
+              <div
+                key={index}
+                className='group relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-brand-900/5 hover:-translate-y-1 hover:border-brand-200 transition-all duration-300'
+              >
+                {/* Icon Container */}
+                <div className='w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300'>
+                  {service.icon}
+                </div>
+
+                <h3 className='text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors'>
+                  {service.title}
+                </h3>
+
+                <p className='text-slate-500 leading-relaxed mb-6'>
+                  {service.description}
+                </p>
+
+                {/* Learn More Link */}
+                <div className='flex items-center text-sm font-semibold text-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0'>
+                  <span>Learn more</span>
+                  <ArrowUpRight className='ml-1 w-4 h-4' />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

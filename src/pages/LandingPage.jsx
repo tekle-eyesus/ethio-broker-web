@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import {
-  ArrowRight,
-  CheckCircle2,
   Menu,
   Shield,
-  TrendingUp,
+  Users,
+  FileText,
+  AlertTriangle,
+  Wallet,
+  Building2,
+  PieChart,
   Award,
 } from "lucide-react";
 
@@ -31,6 +34,44 @@ const LandingPage = () => {
       img: eatAgencyLogo,
     },
     { name: "Gasha Digital", img: gashaDigitalLogo },
+  ];
+  const SERVICES = [
+    {
+      title: "Client CRM",
+      description:
+        "Manage individual and business profiles with localized Ethiopian address fields (Wereda/Kebele) and document retention.",
+      icon: <Users className='w-6 h-6' />,
+    },
+    {
+      title: "Policy Administration",
+      description:
+        "Issue and renew policies across all categories (Motor, Marine, Engineering) with automated commission calculations.",
+      icon: <FileText className='w-6 h-6' />,
+    },
+    {
+      title: "Claims Workflow",
+      description:
+        "End-to-end tracking of incidents from reporting to settlement. Monitor approval statuses and approved amounts.",
+      icon: <AlertTriangle className='w-6 h-6' />,
+    },
+    {
+      title: "Financial Ledger",
+      description:
+        "Double-entry tracking for premiums and commissions. Manage CPO, Cheque, and Cash payments with precision.",
+      icon: <Wallet className='w-6 h-6' />,
+    },
+    {
+      title: "Carrier Management",
+      description:
+        "Maintain agreements with insurers like EIC, Awash, and Nyala. Track commission rates per policy type.",
+      icon: <Building2 className='w-6 h-6' />,
+    },
+    {
+      title: "Business Analytics",
+      description:
+        "Real-time dashboards showing active policies, expiring renewals, and revenue performance at a glance.",
+      icon: <PieChart className='w-6 h-6' />,
+    },
   ];
   return (
     <div className='min-h-screen bg-slate-50 relative overflow-hidden font-sans text-slate-900'>

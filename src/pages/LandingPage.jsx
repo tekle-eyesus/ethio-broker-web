@@ -11,6 +11,9 @@ import {
   PieChart,
   Award,
   ArrowUpRight,
+  Github,
+  Linkedin,
+  Instagram,
 } from "lucide-react";
 
 import amharaBankLogo from "../assets/logos/amhara-bank.png";
@@ -311,6 +314,204 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      {/* --- Footer --- */}
+      <footer className='bg-white pt-20 pb-10 px-6 md:px-12 border-t border-slate-100'>
+        <div className='max-w-7xl mx-auto'>
+          {/* Top Section: Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-5 gap-12 mb-16'>
+            {/* Column 1 (Brand): Spans 2 columns */}
+            <div className='md:col-span-2 space-y-6'>
+              <div className='flex items-center gap-2'>
+                <div className='bg-slate-900 p-1.5 rounded-lg'>
+                  <Shield className='h-5 w-5 text-white fill-white' />
+                </div>
+                <span className='text-xl font-bold tracking-tight text-slate-900'>
+                  EthioBroker
+                </span>
+              </div>
+
+              <p className='text-slate-500 text-sm leading-relaxed max-w-sm'>
+                EthioBroker empowers teams to transform raw insurance data into
+                clear, compelling insights — making operations easier to track,
+                understand, and act on.
+              </p>
+
+              {/* Social Icons */}
+              <div className='flex items-center gap-6'>
+                {/* Custom X (Twitter) Icon */}
+                <a
+                  href='#'
+                  className='text-slate-900 hover:text-brand-600 transition-colors'
+                >
+                  <svg
+                    viewBox='0 0 24 24'
+                    className='h-5 w-5'
+                    fill='currentColor'
+                  >
+                    <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' />
+                  </svg>
+                </a>
+
+                <a
+                  href='#'
+                  className='text-slate-900 hover:text-brand-600 transition-colors'
+                >
+                  <Instagram className='h-5 w-5' />
+                </a>
+
+                <a
+                  href='#'
+                  className='text-slate-900 hover:text-brand-600 transition-colors'
+                >
+                  <Linkedin className='h-5 w-5 fill-current' />
+                </a>
+
+                <a
+                  href='#'
+                  className='text-slate-900 hover:text-brand-600 transition-colors'
+                >
+                  <Github className='h-5 w-5 fill-current' />
+                </a>
+              </div>
+            </div>
+
+            {/* Links Columns */}
+            <div>
+              <h4 className='font-bold text-slate-900 mb-6'>Product</h4>
+              <ul className='space-y-4 text-sm text-slate-500 font-medium'>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Integrations
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Changelog
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className='font-bold text-slate-900 mb-6'>Resources</h4>
+              <ul className='space-y-4 text-sm text-slate-500 font-medium'>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Tutorials
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Support
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className='font-bold text-slate-900 mb-6'>Company</h4>
+              <ul className='space-y-4 text-sm text-slate-500 font-medium'>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#'
+                    className='hover:text-brand-600 transition-colors'
+                  >
+                    Partners
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Section: Separator */}
+          <div className='border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4'>
+            <p className='text-slate-500 text-sm'>
+              &copy; {new Date().getFullYear()} EthioBroker. All rights
+              reserved.
+            </p>
+
+            <div className='flex gap-8 text-sm text-slate-500 font-medium underline-offset-4'>
+              <a href='#' className='hover:underline hover:text-brand-600'>
+                Privacy Policy
+              </a>
+              <a href='#' className='hover:underline hover:text-brand-600'>
+                Terms of Service
+              </a>
+              <a href='#' className='hover:underline hover:text-brand-600'>
+                Cookies Settings
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
